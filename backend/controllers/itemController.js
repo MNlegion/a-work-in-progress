@@ -4,11 +4,9 @@ const asyncHandler = require("express-async-handler");
 // @desc    Fetch all items
 // @route   GET /api/items
 // @access  Public
-const getItems = asyncHandler(async (req, res) => {
-  const items = await Item.find({});
-
-  res.json(items);
-});
+const getItems = (req, res) => {
+  res.json(Item);
+};
 
 // @desc    Fetch single item
 // @route   GET /api/items/:id
