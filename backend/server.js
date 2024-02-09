@@ -1,4 +1,6 @@
 const express = require('express');
+const dotenv = require('dotenv');
+const port = process.env.PORT || 5000;
 
 // Create Express app
 const app = express();
