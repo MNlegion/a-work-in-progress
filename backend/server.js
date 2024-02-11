@@ -2,8 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const colors = require('colors');
 const {errorHandler} = require('./middleware/errorMiddleware');
-const port = process.env.PORT || 5000;
 const connectDB = require('./config/db');
+const port = process.env.PORT || 5000;
 
 // connect to db
 connectDB();
@@ -21,6 +21,6 @@ app.use('/api/items', require('./routes/itemRoutes'));
 // error handling middleware
 app.use(errorHandler);
 
-app.listen(5000, () => {
+app.listen(port, () => {
   console.log(`Server listening on ${port}`);
 });
