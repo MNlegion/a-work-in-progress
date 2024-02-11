@@ -1,9 +1,14 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
+const colors = require('colors');
 const {errorHandler} = require('./middleware/errorMiddleware');
 const port = process.env.PORT || 5000;
+const connectDB = require('./config/db');
 
+// connect to db
+connectDB();
 
+// create express app
 const app = express();
 
 // middleware - allows us to parse json and use req.body
