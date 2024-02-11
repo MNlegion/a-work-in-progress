@@ -1,27 +1,17 @@
 const express = require('express');
 const router = express.Router();
+const { getItems, getItem, updateItem, createItem, deleteItem } = require('../controllers/itemController');
 
-router.get('/', (req, res) => {
-    res.status(200).json({ message: 'Hello from server!' });
-});
+// Routes
+router.get('/', getItems);
 
-router.get('/:id', (req, res) => {
-    res.status(200).json({ message: 'Get item by id' });
-});
+router.get('/:id', getItem);
 
-router.post('/', (req, res) => {
-    res.status(200).json({ message: 'Create item!' });
-});
+router.post('/', createItem);
 
-router.put('/:id', (req, res) => {
-    res.status(200).json({ message: 'Update Item' });
-});
+router.put('/:id', updateItem);
 
-router.delete('/:id', (req, res) => {
-    res.status(200).json({ message: 'Delete Item' });
-});
-
-
+router.delete('/:id', deleteItem);
 
 
 module.exports = router;
