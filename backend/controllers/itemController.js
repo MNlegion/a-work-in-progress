@@ -14,14 +14,28 @@ const getItems = asyncHandler(async (req, res) => {
 // @route: GET /api/items/:id
 // @access: Public
 const getItem = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Get Item ${req.params.id}` });
+  const item = await Item.findById(req.params.id);
+
+  if (!item) {
+    res.status(404);
+    throw new Error("Item not found");
+  }
+
+  res.status(200).json(item);
 });
 
 // @desc: Create item
 // @route: POST /api/items
 // @access: Private
 const createItem = asyncHandler(async (req, res) => {
-  if (!req.body.name || !req.body.price || !req.body.description || !req.body.imageUrl || !req.body.category || !req.body.quantity) {
+  if (
+    !req.body.name ||
+    !req.body.price ||
+    !req.body.description ||
+    !req.body.imageUrl ||
+    !req.body.category ||
+    !req.body.quantity
+  ) {
     res.status(400);
     throw new Error("Please provide item data");
   }
@@ -42,14 +56,35 @@ const createItem = asyncHandler(async (req, res) => {
 // @route: PUT /api/items/:id
 // @access: Private
 const updateItem = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Update Item ${req.body.text}` });
+  const item = await Item.findById(req.params.id);
+
+  if (!item) {
+    res.status(404);
+    throw new Error("Item not found");
+  }
+
+  const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.status(200).json(updatedItem);
 });
 
 // @desc: Delete item
 // @route: DELETE /api/items/:id
 // @access: Private
 const deleteItem = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: `Delete Item ${req.params.id}` });
+  const item = await Item.findById(req.params.id);
+
+  if (!item) {
+    res.status(404);
+    throw new Error("Item not found");
+  }
+
+  await item.deleteOne();
+
+  res.status(200).json({ message: "Item removed" });
 });
 
 module.exports = {
