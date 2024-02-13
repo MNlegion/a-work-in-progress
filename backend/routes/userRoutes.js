@@ -7,14 +7,8 @@ const {
 } = require("../controllers/userController");
 const { protect } = require("../middleware/authMiddleware");
 
-// Register user
-router.post("/register", registerUser);
-
-// Login user
+router.post("/", registerUser);
 router.post("/login", loginUser);
-
-// Get user profile
 router.get("/profile", protect, getUserProfile);
-
 
 module.exports = router;
