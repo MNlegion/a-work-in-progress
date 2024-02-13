@@ -17,6 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // import routes
 app.use('/api/items', require('./routes/itemRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
+
 
 // error handling middleware
 app.use(errorHandler);
