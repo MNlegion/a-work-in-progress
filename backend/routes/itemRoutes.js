@@ -7,9 +7,10 @@ const {
   createItem,
   deleteItem,
 } = require("../controllers/itemController");
+const { protect } = require("../middleware/authMiddleware");
 
 // condensed routes
-router.route("/").get(getItems).post(createItem);
-router.route("/:id").get(getItem).put(updateItem).delete(deleteItem);
+router.route("/").get(protect, getItems).post(protect, createItem);
+router.route("/:id").get(protect, getItem).put(protect, updateItem).delete(protect, deleteItem);
 
 module.exports = router;
