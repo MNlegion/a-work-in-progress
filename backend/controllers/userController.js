@@ -71,7 +71,13 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route: GET /api/users/profile
 // @access: Private
 const getUserProfile = asyncHandler(async (req, res) => {
-  res.json({ message: "User Profile Loaded Successfully" });
+    const { _id, name, email } = await User.findById(req.user.id);
+
+    res.status(200).json({
+      id: _id,
+      name,
+      email,
+    });
 });
 
 // generate jwt
