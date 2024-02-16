@@ -80,7 +80,6 @@ const updateItem = asyncHandler(async (req, res) => {
 
   const updatedItem = await Item.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
-    runValidators: true,
   });
 
   res.status(200).json(updatedItem);
