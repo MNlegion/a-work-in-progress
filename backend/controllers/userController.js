@@ -68,9 +68,9 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 // @desc: Get user profile
-// @route: GET /api/users/profile
+// @route: GET /api/users/dashboard
 // @access: Private
-const getUserProfile = asyncHandler(async (req, res) => {
+const getDashboard = asyncHandler(async (req, res) => {
     const { _id, name, email } = await User.findById(req.user.id);
 
     res.status(200).json({
@@ -87,4 +87,4 @@ const generateToken = (id) => {
   });
 };
 
-module.exports = { registerUser, loginUser, getUserProfile };
+module.exports = { registerUser, loginUser, getDashboard };
