@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="logo">
         <Link to="/">
-          <h1>Cubbie National Golf & Social Club</h1>
+          <h1>A Work In Progress</h1>
         </Link>
       </div>
         <nav>
