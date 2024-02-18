@@ -1,4 +1,4 @@
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaSignInAlt, FaSignOutAlt, FaUser, FaUserPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="logo">
         <Link to="/">
-          <h1>CNGSC</h1>
+          <h1>Cubbie National Golf & Social Club</h1>
         </Link>
       </div>
         <nav>
@@ -23,7 +23,7 @@ function Header() {
             </li>
             <li>
                 <Link to="/register">
-                <FaSignOutAlt /> Register
+                <FaUserPlus /> Register
                 </Link>
             </li>
             </ul>
