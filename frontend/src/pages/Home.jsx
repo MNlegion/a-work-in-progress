@@ -1,7 +1,7 @@
 
 function Home() {
   return (
-    <div>CNGSC</div>
+    <div>Main Landing Page With Site Content</div>
   )
 }
 
