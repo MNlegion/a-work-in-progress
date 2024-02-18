@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { useSelector, useDispath } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { FaUserPlus } from "react-icons/fa";
 
 function Register() {
