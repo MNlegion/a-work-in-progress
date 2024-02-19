@@ -2,6 +2,23 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 function ItemForm() {
+    const [name, setName] = useState('')
+    const [price, setPrice] = useState('')
+    const [description, setDescription] = useState('')
+    const [imageUrl, setImageUrl] = useState('')
+    const [category, setCategory] = useState('')
+    const [quantity, setQuantity] = useState('')
+
+    const handleNameChange = (e) => setName(e.target.value)
+    const handlePriceChange = (e) => setPrice(e.target.value)
+    const handleDescriptionChange = (e) => setDescription(e.target.value)
+    const handleImageUrlChange = (e) => setImageUrl(e.target.value)
+    const handleCategoryChange = (e) => setCategory(e.target.value)
+    const handleQuantityChange = (e) => setQuantity(e.target.value)
+
+    const dispatch = useDispatch()
+
+
     const onSubmit = (e) => {
         e.preventDefault()
         console.log('Form submitted')
