@@ -12,7 +12,7 @@ const initialState = {
 
 
 export const itemSlice = createSlice({
-    name: "item",
+    name: "items",
     initialState,
     reducers: {
         reset: (state) => initialState,
