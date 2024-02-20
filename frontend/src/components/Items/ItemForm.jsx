@@ -1,3 +1,4 @@
+import { set } from 'mongoose'
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -16,11 +17,20 @@ function ItemForm() {
     const handleCategoryChange = (e) => setCategory(e.target.value)
     const handleQuantityChange = (e) => setQuantity(e.target.value)
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
 
     const onSubmit = (e) => {
         e.preventDefault()
+        
+        // dispatch(createItem({ name, price, description, imageUrl, category, quantity }))
+        // setName('')
+        // setPrice('')
+        // setDescription('')
+        // setImageUrl('')
+        // setCategory('')
+        // setQuantity('')
+
         console.log('Form submitted')
     }
 
@@ -28,24 +38,24 @@ function ItemForm() {
     <form onSubmit={onSubmit}>
         <h2>Add New Item</h2>
         <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <label htmlFor="name">Item Name</label>
+            <input type="text" id="name" name="name" value={name} onChange={handleNameChange} required />
         </div>
         <div className="form-group">
             <label htmlFor="price">Price</label>
-            <input type="number" id="price" name="price" required />
+            <input type="number" id="price" name="price" value={price} onChange={handlePriceChange} required />
         </div>
         <div className="form-group">
             <label htmlFor="description">Description</label>
-            <textarea id="description" name="description" required></textarea>
+            <textarea id="description" name="description" value={description} onChange={handleDescriptionChange} required></textarea>
         </div>
         <div className="form-group">
             <label htmlFor="imageUrl">Image URL</label>
-            <input type="text" id="imageUrl" name="imageUrl" required />
+            <input type="text" id="imageUrl" name="imageUrl" value={imageUrl} onChange={handleImageUrlChange} required />
         </div>
         <div className="form-group">
             <label htmlFor="category">Category</label>
-            <select id="category" name="category" required>
+            <select id="category" name="category" value={category} onChange={handleCategoryChange} required>
                 <option selected disabled>Select a category</option>
                 <option value="Electronics">Electronics</option>
                 <option value="Clothing">Clothing</option>
@@ -55,7 +65,7 @@ function ItemForm() {
         </div>
         <div className="form-group">
             <label htmlFor="quantity">Quantity</label>
-            <input type="number" id="quantity" name="quantity" required />
+            <input type="number" id="quantity" name="quantity" value={quantity} onChange={handleQuantityChange} required />
         </div>
         <button type="submit" className='btn btn-block'>Add Item</button>
     </form>
