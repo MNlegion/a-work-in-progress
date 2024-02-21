@@ -6,7 +6,7 @@ const API_URL = "/api/items/";
 const createItem = async (itemData, token) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
@@ -18,7 +18,7 @@ const createItem = async (itemData, token) => {
 const getUserItems = async (token) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   };
@@ -36,7 +36,7 @@ const updateItem = async (itemData) => {};
 const deleteItem = async (itemId, token) => {
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     };
