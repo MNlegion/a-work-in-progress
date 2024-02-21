@@ -43,6 +43,26 @@ function Dashboard() {
       </section>
 
       <ItemForm />
+
+      <section className="content">
+        <h2>Your Items</h2>
+        {items.length > 0 ? (
+          <div className="items">
+            {items.map((item) => (
+              <div key={item._id} className="item">
+                <h3>{item.name}</h3>
+                <p>${item.price}</p>
+                <p>{item.description}</p>
+                <img src={item.imageUrl} alt={item.name} />
+                <p>Category: {item.category}</p>
+                <p>Quantity: {item.quantity}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No items found</p>
+        )}
+      </section>
     </>
   );
 }
