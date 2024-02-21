@@ -9,7 +9,16 @@ const getItems = async () => {};
 const getItem = async (id) => {};
 
 // Create item
-const createItem = async (itemData) => {};
+const createItem = async (itemData, token) => {
+    const config = {
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+    };
+    const response = await axios.post(API_URL, itemData, config);
+    return response.data;
+};
 
 // Update item
 const updateItem = async (itemData) => {};
