@@ -33,7 +33,16 @@ const getItem = async (id) => {};
 const updateItem = async (itemData) => {};
 
 // Delete item
-const deleteItem = async (id) => {};
+const deleteItem = async (itemId, token) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.delete(API_URL + itemId, config);
+    return response.data;
+  };
 
 const itemService = {
   createItem,

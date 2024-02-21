@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ItemForm from "../components/Items/ItemForm";
 import Spinner from "../components/Spinner";
 import { getUserItems, reset } from "../features/items/itemSlice";
+import ItemOverview from "../components/Items/ItemOverview";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -22,13 +23,10 @@ function Dashboard() {
 
     if (!user) {
       navigate("/");
-    }
+    } else dispatch(getUserItems());
 
-    dispatch(getUserItems());
-
-    return () => {
-      dispatch(reset());
-    };
+    return () => dispatch(reset());
+    
   }, [user, navigate, dispatch, isError, message]);
 
   if (isLoading) {
@@ -49,14 +47,7 @@ function Dashboard() {
         {items.length > 0 ? (
           <div className="items">
             {items.map((item) => (
-              <div key={item._id} className="item">
-                <h3>{item.name}</h3>
-                <p>${item.price}</p>
-                <p>{item.description}</p>
-                <img src={item.imageUrl} alt={item.name} />
-                <p>Category: {item.category}</p>
-                <p>Quantity: {item.quantity}</p>
-              </div>
+              <ItemOverview key={item._id} item={item} />
             ))}
           </div>
         ) : (
