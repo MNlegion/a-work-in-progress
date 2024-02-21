@@ -86,6 +86,14 @@ h3 {
   color: #828282;
 }
 
+/* Style for the footer */
+.footer {
+  color: #000; /* Change the text color as needed */
+  padding: 20px 0; /* Adjust padding as needed */
+  border-top: 1px solid #e6e6e6;
+  margin-top: 50px;
+}
+
 .items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
